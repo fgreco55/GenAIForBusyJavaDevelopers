@@ -4,7 +4,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class JokeRESTAnthropic {
+public class RESTAnthropic {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         var apiKey = System.getenv("ANTHROPIC_API_KEY");

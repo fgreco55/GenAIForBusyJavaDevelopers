@@ -4,27 +4,26 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class JokeRESTGemini {
+public class RESTOpenAI {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        var apiKey = System.getenv("GOOGLE_API_KEY");
+        var apiKey = System.getenv("OPENAI_API_KEY");
         var body = """
-               {
-                   "contents": [{
-                       "parts": [{    "text" : "Write a clever joke about Java programmers"  }]
-                   }]
-               }""";
-
-
-        String googleModelURL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash";
-        String googleString = googleModelURL + ":" + "generateContent?key=" + apiKey;
-
+        {
+            "model": "gpt-4",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": "Tell me a funny joke about programming in Java"
+                }
+            ]
+        }
+        """;
 
         HttpRequest request = HttpRequest.newBuilder()
-
-                .uri(URI.create(googleString))
-
+                .uri(URI.create("https://api.openai.com/v1/chat/completions"))
                 .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + apiKey)
                 .POST(HttpRequest.BodyPublishers.ofString(body))
                 .build();
 
