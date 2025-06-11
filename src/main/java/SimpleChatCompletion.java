@@ -1,3 +1,17 @@
+import dev.langchain4j.data.message.AiMessage;
+import dev.langchain4j.data.message.ChatMessage;
+import dev.langchain4j.data.message.SystemMessage;
+import dev.langchain4j.data.message.UserMessage;
+import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.chat.response.ChatResponse;
+import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.model.openai.OpenAiChatModelName;
+import dev.langchain4j.model.output.Response;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+
 public class SimpleChatCompletion {
     public static void main(String[] args){
 
@@ -16,9 +30,9 @@ public class SimpleChatCompletion {
 
         messages.add(sysmsg);	messages.add(usermsg);
 
-        Response<AiMessage> answer = cmodel.chat(messages);
+        ChatResponse answer = cmodel.chat(messages);
 
-        System.out.println(answer.content().text());
+        System.out.println(answer.aiMessage().text());
     }
 }
 
