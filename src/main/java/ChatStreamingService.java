@@ -4,6 +4,7 @@ import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModelName;
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.service.AiServices;
+import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
 
 import java.time.Duration;
@@ -13,6 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ChatStreamingService {
     public interface ChatBot {
+        @SystemMessage("Respond as a professional business consultant without using markdown or numbered bullets in your response")
         TokenStream sendChat(String userMessage);
     }
 
@@ -32,7 +34,7 @@ public class ChatStreamingService {
                 .build();
 
         Set<String> terminate = Set.of("exit", "quit", "bye");
-        String pstring = "\nprompt> ";
+        String pstring = "\nrequest> ";
 
         while (true) {
             System.out.print(pstring);
