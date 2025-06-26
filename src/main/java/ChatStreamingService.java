@@ -48,6 +48,11 @@ public class ChatStreamingService {
             if (cmdline.isBlank())       // If nothing, do nothing
                 continue;
 
+            /*
+             The following might be a bit advanced for beginning Java developers.
+             I would suggest investigating java.util.concurrent and "asynchronous programming in Java"
+             */
+
             CompletableFuture<ChatResponse> future = new CompletableFuture<>();
             TokenStream stream = consultant.sendChat(cmdline);
             stream  .onPartialResponse(System.out::print)
