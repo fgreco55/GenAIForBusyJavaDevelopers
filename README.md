@@ -13,6 +13,7 @@ This repo is for students taking the O'Reilly course [GenAI for Busy Java Develo
 - The critical importance of context
 - Chatbot architecture
 - The value of embeddings and similarity
+- Basic RAG architecture
 
 ## Tech Stack Needed
 - Java 17+
