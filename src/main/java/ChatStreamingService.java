@@ -51,6 +51,9 @@ public class ChatStreamingService {
             /*
              The following might be a bit advanced for beginning Java developers.
              I would suggest investigating java.util.concurrent and "asynchronous programming in Java"
+
+             While this handles streaming output, you may experience output that is not as smooth as you expect for a chatbot.
+             More code is required to produce smooth output that users expect.
              */
 
             CompletableFuture<ChatResponse> future = new CompletableFuture<>();
