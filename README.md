@@ -38,4 +38,12 @@ Open a [pull request](https://github.com/fgreco55/GenAIForBusyJavaDevelopers/pul
 ```bash
    % git clone https://github.com/fgreco55/GenAIForBusyJavaDevelopers.git
    % cd GenAIForBusyJavaDevelopers
+```
+
+## Warning
+Many of these examples utilize an external GenAI vendor such as OpenAI, Google, Anthropic, etc. When you use these services, you are sending your prompts and related context to that vendor. Be careful of what information you send to these vendors, as they may store your information on their servers and
+potentially use your data to train their GenAI models. Many serious enterprises install GenAI LLMs on their machines (laptops, desktops, internal/private clouds) to avoid this 
+serious concern.
+
+I would suggest investigating [Ollama](https://ollama.com/), which is an open-source tool that simplifies installing local GenAI models.
 
