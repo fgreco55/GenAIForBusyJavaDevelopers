@@ -37,6 +37,7 @@ Open a [pull request](https://github.com/fgreco55/GenAIForBusyJavaDevelopers/pul
 
 ## Quick Start
 ```bash
+   % cd your-primary-src-directory
    % git clone https://github.com/fgreco55/GenAIForBusyJavaDevelopers.git
    % cd GenAIForBusyJavaDevelopers
 ```
