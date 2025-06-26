@@ -18,7 +18,7 @@ public class SimpleChatCompletion {
         ChatModel cmodel = OpenAiChatModel.builder()
                 .apiKey(System.getenv("OPENAI_API_KEY"))
                 .modelName(OpenAiChatModelName.GPT_4_O)
-                .temperature(0.3)
+                .temperature(0.3)               // docs say higher is more 'creative'.  Set this to 2.0 (max) as an experiment in "creativity"
                 .timeout(Duration.ofSeconds(30))
                 .maxTokens(1024)
                 .build();
