@@ -17,7 +17,7 @@ public class CompareEmbeddings {
                 .build();
 
         List<Float> one = getEmbeddingVec(model, "I like the Java programming language.");
-        List<Float> two = getEmbeddingVec(model, "Pineapple does not belong on pizza.");
+        List<Float> two = getEmbeddingVec(model, "Tonight is pizza night at the baseball stadium.");
 
         double similarity = cosineSimilarity(FloatList2doubleArray(one), FloatList2doubleArray(two));
         System.out.println("Cosine Similarity: " + similarity);
@@ -36,6 +36,7 @@ public class CompareEmbeddings {
 
     /**
      * cosineSimilarity - calculate similarity of 2 embeddings using cosine algorithm
+     *                      In practice, just use a commercial service.  Most vector DBs provide a set of similarity algos
      * @param vec1 - first embedding vector
      * @param vec2 - second embedding vector
      * @return similarity (0.0-1.0) - low to high, dissimilar to similar
