@@ -15,7 +15,7 @@ public class GetEmbedding {
                 .modelName(TEXT_EMBEDDING_3_SMALL)
                 .build();
 
-        Response<Embedding> response = model.embed("One fish, two fish, red fish, blue fish");
+        Response<Embedding> response = model.embed("Imagination is more important than knowledge");
         Embedding embedding = response.content();
 
         System.out.println(embedding);
