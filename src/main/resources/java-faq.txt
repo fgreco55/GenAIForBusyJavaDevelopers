@@ -1,0 +1,169 @@
+General Release Information
+
+Q: What is Java 24?
+A: Java 24 (Oracle JDK 24) is the latest version of Oracle’s Java platform, featuring thousands of improvements for productivity, performance, stability, and security.
+
+Q: When was Java 24 announced?
+A: It was announced ahead of the JavaOne 2025 conference, which takes place March 18–20, 2025, in Redwood Shores, CA.
+
+Q: How old is Java in 2025?
+A: Java is approaching its 30th anniversary in 2025.
+
+Q: What is the main focus of Java 24?
+A: Enhancing developer productivity, enabling AI-powered applications, improving performance, and introducing post-quantum cryptography capabilities.
+
+Q: Who develops and maintains Java?
+A: Oracle, in collaboration with the global Java community through OpenJDK and the Java Community Process (JCP).
+
+Language Features
+
+Q: What is JEP 488 about?
+A: It introduces primitive types in patterns, instanceof, and switch to make the language more uniform and expressive.
+
+Q: How does JEP 488 help AI developers?
+A: It improves pattern matching for primitive types, useful for AI inference integrations.
+
+Q: What is JEP 492?
+A: Flexible Constructor Bodies, introducing prologue and epilogue phases to improve code reliability.
+
+Q: Why is JEP 492 useful?
+A: It avoids awkward workarounds like private helper methods in constructors.
+
+Q: What is JEP 494?
+A: Module Import Declarations, allowing importing all packages from a module without requiring the code to be in a module.
+
+Q: How does JEP 494 help beginners?
+A: It simplifies the use of libraries without needing to know package hierarchies.
+
+Q: What is JEP 495?
+A: Simple Source Files and Instance Main Methods, simplifying the process for beginners to write their first Java programs.
+
+Q: How does JEP 495 help experienced developers?
+A: It allows writing small, single-class programs more efficiently.
+
+Libraries
+
+Q: What is JEP 485?
+A: Stream Gatherers, enabling custom intermediate stream operations for more expressive data transformations.
+
+Q: What problem does JEP 485 solve?
+A: It eliminates the need for workarounds like custom collectors or flatMap gymnastics.
+
+Q: What is JEP 484?
+A: Class-File API, providing a standard way to parse, generate, and transform Java class files.
+
+Q: What is JEP 487?
+A: Scoped Values, enabling immutable data sharing across threads.
+
+Q: What is JEP 489?
+A: Vector API (Ninth Incubator), for high-performance vector computations.
+
+Q: What is JEP 499?
+A: Structured Concurrency, simplifying multi-threaded programming by treating task groups as a single unit.
+
+Security Libraries
+
+Q: What is JEP 478?
+A: Key Derivation Function API for cryptographic security in transit.
+
+Q: What is JEP 496?
+A: Quantum-Resistant ML-KEM for securing symmetric keys against quantum attacks.
+
+Q: What is JEP 497?
+A: Quantum-Resistant ML-DSA for secure digital signatures resistant to quantum computing.
+
+Tools
+
+Q: What is JEP 493?
+A: Linking run-time images without JMODs, reducing JDK size by ~25%.
+
+Performance & Runtime
+
+Q: What is JEP 450?
+A: Compact Object Headers, reducing object header size to save memory.
+
+Q: What is JEP 475?
+A: Late Barrier Extension for G1 GC, improving performance by optimizing barrier insertion timing.
+
+Q: What is JEP 483?
+A: Ahead-of-Time Class Loading & Linking for faster JVM startup.
+
+Q: What is JEP 490?
+A: Removal of non-generational mode in ZGC to reduce maintenance costs.
+
+Q: What is JEP 491?
+A: Synchronize Virtual Threads without Pinning for better scalability.
+
+Source Code Changes
+
+Q: What is JEP 404?
+A: Generational Shenandoah GC for better throughput and memory use.
+
+Q: What is JEP 479?
+A: Removal of Windows 32-bit x86 port.
+
+Q: What is JEP 501?
+A: Deprecation of 32-bit x86 port for future removal.
+
+Q: Which features are marked for removal in future Java versions?
+A: JNI restriction (JEP 472), disabling Security Manager (JEP 486), and warning on sun.misc.Unsafe memory access methods (JEP 498).
+
+Community & Ecosystem
+
+Q: How is Java 24 connected to AI?
+A: It includes new AI-friendly language and library features like Vector API, primitive type patterns, and module imports.
+
+Q: How is Java 24 supported in Oracle Cloud?
+A: OCI offers Java SE, GraalVM, and Enterprise Performance Pack at no extra cost.
+
+Q: What is the Oracle Java Universal SE Subscription?
+A: A subscription with enterprise-grade support, GraalVM, advanced Java Management Service features, and flexible upgrade options.
+
+Q: What benefit does Java 24 bring to cloud deployment?
+A: Faster, more efficient applications with optimized cost-performance.
+
+Quotes & Industry Feedback
+
+Q: What does Frank Greco highlight in Java 24?
+A: Enhancements to the Vector API for efficient AI algorithms.
+
+Q: What does Richard Fichtner praise in Java 24?
+A: Stream Gatherers for more readable and maintainable data pipelines.
+
+Q: What are Dr. Venkat Subramaniam’s favorite features?
+A: Stream Gatherers API, Scoped Values, and Structured Concurrency.
+
+Q: What feature does Jeanne Boyarsky find notable?
+A: Flexible constructors to simplify this/super calls.
+
+Q: What is JetBrains’ role in Java 24 adoption?
+A: IntelliJ IDEA supports Java 24 from day one with easy download inside the IDE.
+
+Developer Benefits
+
+Q: How does Java 24 help beginners?
+A: With simpler program entry points (JEP 495) and easier library imports (JEP 494).
+
+Q: How does Java 24 help AI developers?
+A: By offering features like the Vector API and primitive pattern matching for efficient AI computation.
+
+Q: How does Java 24 improve concurrency?
+A: With Structured Concurrency and virtual thread synchronization without pinning.
+
+Q: How does Java 24 enhance security?
+A: With quantum-resistant cryptography and key derivation APIs.
+
+Q: How does Java 24 improve performance?
+A: Through compact object headers, optimized GC barriers, and ahead-of-time class loading.
+
+Q: How does Java 24 support modular development?
+A: By simplifying module imports and providing a Class-File API.
+
+Q: What garbage collectors are enhanced in Java 24?
+A: G1 (JEP 475), Shenandoah (JEP 404), and ZGC (JEP 490).
+
+Q: How does Java 24 simplify deployment?
+A: Smaller JDK size via JEP 493 and optimized runtime image linking.
+
+Q: Why is Java 24 considered enterprise-ready?
+A: Its stability, AI readiness, post-quantum security, and predictable six-month release cadence.
