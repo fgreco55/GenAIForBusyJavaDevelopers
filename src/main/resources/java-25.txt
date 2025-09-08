@@ -1,5 +1,5 @@
 Long-term support release due in September brings features ranging from stable values and structured concurrency to ahead-of-time method profiling and JFR CPU-time profiling on Linux.
-Credit: Christina Morillo
+
 Java Development Kit (JDK) 25, a planned long-term support (LTS) release of standard Java, has reached the second rampdown or bug-fixing phase, as of July 17. This latest version of Java has 18 features.
 
 JDK 25 comes on the heels of JDK 24, a six-month-support release that arrived March 18. As a long-term support release, JDK 25 will get at least five years of Premier support from Oracle. JDK 25 is due to arrive as a production release on September 16, following two release candidates planned for August 7 and August 21.
