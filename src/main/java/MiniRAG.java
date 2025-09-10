@@ -55,7 +55,6 @@ public class MiniRAG {
             System.out.println(response);
 
             memory.add(UserMessage.from(response));                     // Add response from llm
-            memory.add(UserMessage.from(cmdline));                      // Add prompt from the user
         }
     }
 
