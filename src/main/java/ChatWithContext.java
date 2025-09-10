@@ -36,8 +36,7 @@ public class ChatWithContext {
 
             System.out.println(response);
 
-            chatMemory.add(UserMessage.from(response)); // Add response from llm
-            chatMemory.add(UserMessage.from(cmdline));  // Add prompt from the user
+            chatMemory.add(UserMessage.from(response));     // Add response from llm
         }
     }
 }
