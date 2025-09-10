@@ -17,6 +17,7 @@ import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -25,7 +26,7 @@ import static dev.langchain4j.model.openai.OpenAiEmbeddingModelName.TEXT_EMBEDDI
 
 public class MiniRAGService {
     interface Assistant {
-        @SystemMessage("You are a polite assistant")
+        @SystemMessage("You are a polite and very detailed Java consultant")
         String chat(String text);
     }
 
@@ -36,11 +37,8 @@ public class MiniRAGService {
         InMemoryEmbeddingStore<TextSegment> myDB = new InMemoryEmbeddingStore<>();   // in-memory embedding store
 
         List<String> lines = Files.readAllLines(Paths.get("src/main/resources/java-faq.txt"));
-        List<Document> documents = lines.stream()
-                .map(String::trim)                          // remove leading/trailing whitespace
-                .filter(line -> !line.isEmpty())      // skip empty strings
-                .map(Document::from)                        // convert to Document
-                .collect(Collectors.toList());
+
+        List<Document> documents = convertLinesToDocuments(lines);  // See two implementations below
 
         EmbeddingStoreIngestor ingestor = EmbeddingStoreIngestor.<TextSegment>builder()
                 .documentSplitter(new DocumentBySentenceSplitter(512, 25))
@@ -53,8 +51,8 @@ public class MiniRAGService {
         var retriever = EmbeddingStoreContentRetriever.builder()
                 .embeddingModel(emodel)
                 .embeddingStore(myDB)
-                .maxResults(5)
-                .minScore(.7)
+                .maxResults(5)          // At most return this number of results
+                .minScore(.7)           // Return results that are relevant (0->1 least->most)
                 .build();
 
         ChatModel model = createChatModel();
@@ -106,24 +104,35 @@ public class MiniRAGService {
                 .build();
     }
 
-    /*private class Chatbot {
-        private ChatModel chatModel;
-        private EmbeddingModel embeddingModel;
-        private EmbeddingStore embeddingStore;
-        private int maxResults;
-        private int maxMemory;
-        private float minScore;
+    /**
+     * convertLinesToDocuments(List<String> mylines)
+     * Use Java streams to convert a List of Strings to a List of Documents.
+     * Ignore the blank lines and trim all the others.
+     * See alternative non-streams implementation below
+     */
+    public static List<Document> xconvertLinesToDocuments(List<String> mylines) {
+        return mylines.stream()
+                .map(String::trim)                          // remove leading/trailing whitespace
+                .filter(line -> !line.isEmpty())      // skip empty strings
+                .map(Document::from)                        // convert to Document
+                .collect(Collectors.toList());
+    }
+    /**
+     * convertLinesToDocuments(List<String> mylines)
+     * Use conventional Java to convert a List of Strings to a List of Documents.
+     * Ignore the blank lines and trim all the others.
+     * This version might be easier for beginning Java developers.
+     */
+    public static List<Document> convertLinesToDocuments(List<String> mylines) {
+        List<Document> documents = new ArrayList<>();
 
-        Chatbot(ChatModel chatModel, EmbeddingModel embModel, EmbeddingStore embStore, int maxres, int maxmem, float minscore) {
-            this.chatModel = chatModel;
-            this.embeddingModel = embeddingModel;
-            this.embeddingStore = embeddingStore;
-            this.maxResults = maxres;
-            this.maxMemory = maxmem;
-            this.minScore = minscore;
+        for (String line : mylines) {
+            String trimmed = line.trim(); // remove leading/trailing whitespace
+            if (!trimmed.isEmpty()) {     // skip empty strings
+                Document doc = Document.from(trimmed); // convert to Document
+                documents.add(doc);
+            }
         }
-        Chatbot(ChatModel chatModel) {
-            this.chatModel = chatModel;
-        }
-    }*/
+        return documents;
+    }
 }
