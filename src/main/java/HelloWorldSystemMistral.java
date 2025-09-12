@@ -21,7 +21,7 @@ public class HelloWorldSystemMistral {
         List<ChatMessage> messages = new ArrayList<>();
 
         SystemMessage sysmsg = new SystemMessage("""
-                    You are a polite Java expert explaining concepts to a junior software developer using examples.
+                    You are a polite Java expert explaining concepts to a C++ software developer using examples.
                 """);
         messages.add(sysmsg);
 
