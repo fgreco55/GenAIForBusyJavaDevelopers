@@ -27,14 +27,14 @@ import static dev.langchain4j.model.openai.OpenAiEmbeddingModelName.TEXT_EMBEDDI
 public class MiniRAGService {
     interface Assistant {
         @SystemMessage("You are a polite and very detailed Java consultant")
-        String chat(String text);
+        String send(String text);
     }
 
     public static void main(String[] args) throws IOException {
         String cmdline;
 
         EmbeddingModel emodel = createEmbeddingModel();
-        InMemoryEmbeddingStore<TextSegment> myDB = new InMemoryEmbeddingStore<>();   // in-memory embedding store
+        EmbeddingStore<TextSegment> myDB = new InMemoryEmbeddingStore<>();   // in-memory embedding store
 
         List<String> lines = Files.readAllLines(Paths.get("src/main/resources/java-faq.txt"));
 
@@ -67,7 +67,7 @@ public class MiniRAGService {
             if ((cmdline = getInput("Cmd> ")).isEmpty())
                 continue;
 
-            var response = cb.chat(cmdline);        // Send everything to the LLM
+            var response = cb.send(cmdline);        // Send everything to the LLM
             System.out.println(response);
         }
     }
@@ -108,7 +108,7 @@ public class MiniRAGService {
      * convertLinesToDocuments(List<String> mylines)
      * Use Java streams to convert a List of Strings to a List of Documents.
      * Ignore the blank lines and trim all the others.
-     * See alternative non-streams implementation below
+     * See alternative non-streams implementation below.
      */
     public static List<Document> xconvertLinesToDocuments(List<String> mylines) {
         return mylines.stream()
