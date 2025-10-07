@@ -2,7 +2,7 @@
 
 Welcome!
 
-This repo is for students taking the O'Reilly course [GenAI for Busy Java Developers](https://learning.oreilly.com/live-events/genai-for-busy-java-developers/0642572177317).
+This repo is for students taking the Pearson/O'Reilly course [GenAI for Busy Java Developers](https://learning.oreilly.com/live-events/genai-for-busy-java-developers/0642572177317).
 
 
 ## What You'll Learn
@@ -44,8 +44,9 @@ Open a [pull request](https://github.com/fgreco55/GenAIForBusyJavaDevelopers/pul
 
 ## Warning
 Many of these examples utilize an external GenAI vendor such as OpenAI, Google, Anthropic, etc. When you use these services, you are sending your prompts and related context to that vendor. Be careful of what information you send to these vendors, as they may store your information on their servers and
-potentially use your data to train their GenAI models. Many serious enterprises install GenAI LLMs on their machines (laptops, desktops, internal/private clouds) to avoid this 
+potentially use your data to train their GenAI models (a highly unethical practice). 
+Alternatively, many serious enterprises install GenAI LLMs on their private machines (laptops, desktops, internal/private clouds) to avoid this 
 serious concern.
 
-I would suggest investigating [Ollama](https://ollama.com/), which is an open-source tool that simplifies installing local GenAI models.
+I would suggest investigating [Ollama](https://ollama.com/), which is an open-source tool that simplifies the installation of local GenAI models.
 
