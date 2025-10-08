@@ -16,7 +16,7 @@ public class RESTGemini {
                }""";
 
 
-        String googleModelURL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash";
+        String googleModelURL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash";
         String googleString = googleModelURL + ":" + "generateContent?key=" + apiKey;
 
 
