@@ -114,7 +114,7 @@ public class MiniRAG {
     }
 
     /**
-     * getMatches() - Search an InMemorryEmbeddingStore for content related to a given string
+     * getMatches() - Search an InMemoryEmbeddingStore for content related to a given string
      * @param myDB
      * @param embModel
      * @param input
@@ -128,7 +128,7 @@ public class MiniRAG {
         EmbeddingSearchRequest embeddingSearchRequest = EmbeddingSearchRequest.builder()    // Search the local embedding store for related strings
                 .queryEmbedding(queryEmbedding)
                 .maxResults(10)     // at most, find this number of matches [best in a properties file]
-                .minScore(0.7)      // 0-1, so ignore anything below the midpoint [best in a properties file]
+                .minScore(0.7)      // 0-1, so ignore anything below this value [best in a properties file]
                 .build();
 
         List<EmbeddingMatch<TextSegment>> matches = myDB.search(embeddingSearchRequest).matches();
@@ -137,7 +137,7 @@ public class MiniRAG {
             for (EmbeddingMatch<TextSegment> match : matches) {
                 String s = match.embedded().text();
                 myList.add(s);
-                // System.out.println("MATCH: " + s);
+                //System.out.println("[" + match.score() + "] MATCH: " + s);
             }
         }
         return myList;
