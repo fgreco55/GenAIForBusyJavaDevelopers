@@ -23,7 +23,7 @@ public class SimpleTemplate {
 
         Map<String, Object> variables = new HashMap<>();
         variables.put("topic", "quantum computing");
-        variables.put("student_type", "musician");
+        variables.put("student_type", "hard rock musician");
 
         Prompt prompt = promptTemplate.apply(variables);
         String response = cmodel.chat(prompt.text());
