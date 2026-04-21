@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
 }
 
-def lc4jVersion = "1.9.0"
+def lc4jVersion = "1.13.0"
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
