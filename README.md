@@ -14,6 +14,8 @@ This repo is for students taking the Pearson/O'Reilly course [GenAI for Busy Jav
 - Chatbot architecture
 - The value of embeddings and similarity
 - Basic RAG architecture
+- Tools, Similarity, and Embeddings
+- Agents
 
 ## Tech Stack Needed
 - Java 17+
