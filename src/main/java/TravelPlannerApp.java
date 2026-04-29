@@ -7,6 +7,10 @@ import java.util.*;
 
 public class TravelPlannerApp {
 
+    public interface TravelAgent {
+        String planTrip(String userRequest);
+    }
+
     public static void main(String[] args) {
 
         var model = OpenAiChatModel.builder()
@@ -54,9 +58,5 @@ public class TravelPlannerApp {
                 """;
         System.out.println("RESPONSE ===================================");
         System.out.println(agent.planTrip(userRequest));
-    }
-
-    public interface TravelAgent {
-        String planTrip(String userRequest);
     }
 }

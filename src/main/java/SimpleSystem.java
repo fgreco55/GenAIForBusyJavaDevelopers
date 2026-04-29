@@ -18,7 +18,7 @@ public class SimpleSystem {
                 .modelName(OpenAiChatModelName.GPT_4_O)
                 //.temperature(0.3)                    // keep randomness low
                 .timeout(Duration.ofSeconds(120))
-                //.maxTokens(256)                     // keep costs down during development
+                .maxTokens(256)                     // keep costs down during development
                 .build();
         System.out.println("Hello World SimpleSystem ---------------------");
         List<ChatMessage> messages = new ArrayList<>();

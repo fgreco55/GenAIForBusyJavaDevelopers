@@ -19,7 +19,7 @@ public class CompareEmbeddings {
         List<Float> one = getEmbeddingVec(model, "I like the Java programming language.");
         List<Float> two = getEmbeddingVec(model, "Tonight is pizza night at the baseball stadium.");
 
-        double similarity = cosineSimilarity(FloatList2doubleArray(one), FloatList2doubleArray(two));
+        double similarity = cosineSimilarity(one, two);
         System.out.println("Cosine Similarity: " + similarity);
     }
 
@@ -41,16 +41,18 @@ public class CompareEmbeddings {
      * @param vec2 - second embedding vector
      * @return similarity (0.0-1.0) - low to high, dissimilar to similar
      */
-    public static double cosineSimilarity(double[] vec1, double[] vec2) {
-        double dotProduct = dotProduct(vec1, vec2);
-        double magnitudeVec1 = magnitude(vec1);
-        double magnitudeVec2 = magnitude(vec2);
+    public static double cosineSimilarity(List<Float> vec1, List<Float> vec2) {
+        double[] newvec1 = FloatList2doubleArray(vec1);
+        double[] newvec2 = FloatList2doubleArray(vec2);
 
-        if (magnitudeVec1 == 0 || magnitudeVec2 == 0) {
-            return 0; // To avoid division by zero
-        } else {
-            return dotProduct / (magnitudeVec1 * magnitudeVec2);
+        double dot = dotProduct(newvec1, newvec2);
+        double mag1 = magnitude(newvec1);
+        double mag2 = magnitude(newvec2);
+
+        if (mag1 == 0 || mag2 == 0) {
+            return 0;
         }
+        return dot / (mag1 * mag2);
     }
 
     /**
