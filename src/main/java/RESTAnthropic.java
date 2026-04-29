@@ -10,7 +10,7 @@ public class RESTAnthropic {
         var apiKey = System.getenv("ANTHROPIC_API_KEY");
         var body = """
                {
-                   "model": "claude-3-7-sonnet-20250219",
+                   "model": "claude-sonnet-4-6",
                    "max_tokens": 1024,
                    "messages": [
                        {
